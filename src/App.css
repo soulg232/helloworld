@@ -24,8 +24,14 @@
   padding: 10px;
 }
 
-a {
+.link {
   text-decoration: none;
+  cursor: pointer;
+  color: rgb(134, 51, 243);
+}
+
+.link:hover {
+  color: rgb(124, 83, 179);
 }
 
 .SideNav {
@@ -44,8 +50,7 @@ a {
 }
 
 .hide {
-  height: 0;
-  overflow: hidden;
+  display: none;
 }
 
 section {
