@@ -1,21 +1,32 @@
 import InputRow from "./input-row";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+const SetLocalItem = (name, variable) => {
+  useEffect(() => {
+    localStorage.setItem(name, variable);
+  }, [variable])
+}
+
 
 const App = () => {
-  const [appName, setAppName] = useState("");
-  const [appAge, setAppAge] = useState("");
+  const [appName, setAppName] = useState(localStorage.getItem('name') || '');
+  const [appAge, setAppAge] = useState(localStorage.getItem('age') || '');
 
-  const handleNameChange = (name) => {
-    setAppName(name);
-  };
 
   const handleAgeChange = (age) => {
     setAppAge(age);
+  };  
+  
+  const handleNameChange = (name) => {
+    setAppName(name);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+  SetLocalItem('name', appName);
+  SetLocalItem('age', appAge);
 
   return (
     <>
